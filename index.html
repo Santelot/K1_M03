@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Misión</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .banner .title {
+            font-size: 1.2em;
+            display: flex;
+            justify-content: space-between;
+        }
+        .banner .subtitle {
+            font-size: 1em;
+            margin-top: 5px;
+            border-top: 1px solid white;
+            padding-top: 5px;
+        }
+        .content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 15px;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+            text-align: right;
+        }
+        .dialogue {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            text-align: right;
+            font-style: italic;
+        }
+        .dropdown {
+            margin-bottom: 20px;
+        }
+        .dropdown select {
+            font-size: 1em;
+            padding: 5px;
+            margin-left: 10px;
+        }
+        .time-title {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .note {
+            background-color: #ffeb3b;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .nav-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .nav-buttons button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+    <script>
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+
+        function updateActivities() {
+            var selectedTime = document.getElementById('time-select').value;
+            var activities = document.getElementsByClassName('activity');
+
+            document.getElementById('selected-time').innerText = "Tiempo efectivo de clase: " + selectedTime + " minutos";
+
+            for (var i = 0; i < activities.length; i++) {
+                activities[i].style.display = 'block';
+            }
+
+            if (selectedTime === '45') {
+                document.getElementById('activity-2').style.display = 'none';
+            } else if (selectedTime === '40') {
+                document.getElementById('activity-2').style.display = 'none';
+                document.getElementById('activity-6').style.display = 'none';
+            }
+        }
+
+        function navigateTo(id) {
+            var element = document.getElementById(id);
+            window.scrollTo({
+                top: element.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</head>
+<body onload="updateActivities()">
+
+<div class="header">
+    <h1>Playbook K1 - M03</h1>
+</div>
+
+<div class="container">
+ 
+
+    <h2 id="selected-time" class="time-title">Tiempo efectivo de clase: 30 minutos</h2>
+
+    <!-- Actividad 1 (3 pasos) -->
+    <div id="activity-1" class="activity">
+        <div class="banner" onclick="toggleContent('saludo_ritual')">
+            <div class="title">
+                <span>📚 Actividad 1: Saludo y Ritual Gnius Club (3 pasos)</span>
+                <span>⏰ Tiempo: 2 minutos</span>
+            </div>
+            <div class="subtitle">Recepción de los genios y motivación para la actividad</div>
+        </div>
+        <div id="saludo_ritual" class="content">
+            <div class="section">
+                <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 2 "Gnius Club"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">🌟 ¡Hola, genios! 🌟 ¡Qué gusto verlos de nuevo! Hoy vamos a tener una misión súper especial donde vamos a jugar y aprender con formas mágicas. ¿Sabían que un círculo es como el sol, y un cuadrado es como una caja de sorpresas? ¡Y no se olviden de los triángulos, que son como las montañas! ¡Vamos a aprender juntos con estas formas!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 2 (0.5 minutos): Proyectar Diapositiva 3 "Formas Geométricas"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">¡Miren estas formas geniales! Aquí tenemos un círculo, un triángulo, y un cuadrado. Vamos a ver si podemos encontrar formas como estas a nuestro alrededor mientras jugamos y construimos con nuestros bloques hoy. 🟢🔺🔲</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 3 (1 minuto): Mantener la Diapositiva 3</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">¡Vamos a empezar moviéndonos como las formas! Si te sientes como un círculo, da una vuelta en tu lugar. Si te sientes como un cuadrado, estira los brazos a los lados. Y si te sientes como un triángulo, ¡levanta los brazos en punta! ¡Vamos a llenar esta clase de energía y diversión!</div>
+            </div>
+        </div>
+    <!-- Actividad 2 (2 pasos) -->
+    <div id="activity-2" class="activity">
+        <div class="banner" onclick="toggleContent('cancion_baile')">
+            <div class="title">
+                <span>🎵 Actividad 2: Canción y Baile del Día (2 pasos)</span>
+                <span>⏰ Tiempo: 2 minutos</span>
+            </div>
+            <div class="subtitle">Moviéndonos y aprendiendo con las formas geométricas</div>
+        </div>
+        <div id="cancion_baile" class="content">
+            <div class="section">
+                <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 4 "Canción y Baile del Día"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">🎵 ¡Es hora de movernos y cantar juntos! Hoy vamos a aprender sobre las formas mientras bailamos con una canción súper divertida. ¿Listos para identificar círculos, triángulos y cuadrados? ¡Vamos a divertirnos con las formas! 🎉</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 2 (1.5 minutos): Proyectar el video de la canción "La Canción de las Formas - Aprende con Mundo Kuku" y guiar a los genios en los movimientos.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">¡Vamos a seguir el ritmo de la canción! 🎶 Mientras cantamos sobre las formas, ¡podemos movernos como círculos, estirarnos como cuadrados y saltar como triángulos! ¡Vamos, genios, a bailar todos juntos! 🌟</div>
+            </div>
+        </div>
+    </div>
+    <!-- Actividad 3 (6 pasos) -->
+    <div id="activity-3" class="activity">
+        <div class="banner" onclick="toggleContent('formacion_equipos')">
+            <div class="title">
+                <span>🧩 Actividad 3: Formación de Equipos en Parejas (6 pasos)</span>
+                <span>⏰ Tiempo: 6 minutos</span>
+            </div>
+            <div class="subtitle">Creando parejas para trabajar en la misión de hoy</div>
+        </div>
+        <div id="formacion_equipos" class="content">
+            <div class="section">
+                <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 5 "Formación de Equipos en Parejas"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Genios, hoy tenemos algo especial. En lugar de trabajar en equipos grandes, ¡hoy van a trabajar en parejas! Cada uno de ustedes va a tener un compañero con quien construir y jugar. ¡Trabajar en pareja puede ser muy divertido!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 2 (3 minutos): Mantener la Diapositiva 5. Maestros: ayuden a los genios a encontrar un compañero y formar parejas.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Ahora, busquen a un amigo y formen su pareja. Una vez que tengan a su compañero, denle un gran saludo y díganle "¡Hola, compañero!"</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 3 (0.5 minutos): Mantener la Diapositiva 5. Maestros: verifiquen que todos los genios tengan un compañero y estén listos para la misión.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">¿Todos tienen su pareja? ¡Genial! Ahora, miren a su compañero y denle una gran sonrisa. ¡Juntos van a hacer cosas increíbles hoy!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 4 (0.5 minutos): Mantener la Diapositiva 5. Maestros: motiven a los genios a colaborar y compartir ideas con sus compañeros.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Recuerden, genios, que trabajar en equipo significa compartir ideas y ayudarse mutuamente. ¡Cuanto más trabajen juntos, más divertidos serán sus proyectos!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 5 (1 minuto): Mantener la Diapositiva 5. Maestros: entreguen a cada miembro de la pareja 10 bloques, guíen a los genios para que preparen sus bloques y estén listos para la actividad.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">¡Muy bien, parejas! Es hora de preparar sus bloques y estar listos para construir. ¡Vamos a ver qué cosas maravillosas pueden crear juntos!</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 6 (0.5 minutos): Mantener la Diapositiva 5. Maestros: asegúrense de que todos los genios estén listos y enfocados en la misión que sigue.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">¡Perfecto! Todos los equipos de dos están listos. Ahora que estamos organizados, ¡prepárense para nuestra próxima misión de construcción!</div>
+            </div>
+        </div>
+    </div>
+    <!-- Actividad 4 (5 pasos) -->
+    <div id="activity-4" class="activity">
+        <div class="banner" onclick="toggleContent('introduccion_desafio')">
+            <div class="title">
+                <span>🔺 Actividad 4: Construyendo un Triángulo (5 pasos)</span>
+                <span>⏰ Tiempo: 8 minutos</span>
+            </div>
+            <div class="subtitle">Explorando y construyendo formas geométricas con bloques</div>
+        </div>
+        <div id="introduccion_desafio" class="content">
+            <div class="section">
+                <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 6 "Construyendo un Triángulo"</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">🟢 ¡Atención, genios! Hoy vamos a usar nuestros bloques mágicos para construir una forma muy especial. ¿Saben cuál? ¡Un triángulo! Los triángulos están en todas partes, como en las montañas y en las deliciosas rebanadas de pizza. ¿Listos para crear su propio triángulo con bloques? ¡Será muy divertido! 🧱🔺</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 2 (0.5 minutos): Mantener la Diapositiva 6. Maestros: expliquen y muestren cómo se forma un triángulo con los bloques.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">🔍 Miren bien este triángulo. Tiene tres lados y tres esquinas. Vamos a pensar juntos cómo podemos usar nuestros bloques para construir uno igual. Nosotros los ayudaremos a escoger los bloques adecuados y a colocarlos de manera que formen un bonito triángulo. ¡Usen su creatividad! 🌟</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 3 (3.5 minutos): Mantener la Diapositiva 6 visible. Configurar el temporizador visual para 3 minutos. Maestros: circulen por el aula, ofreciendo orientación y apoyo donde sea necesario.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">👐 ¡Es hora de construir! Junto con su compañero, tomen sus bloques y comiencen a formar su triángulo. Recuerden que pueden probar diferentes maneras hasta encontrar la que más les guste. Si necesitan ayuda, levanten la mano y los maestros estarán ahí para guiarlos. Tenemos 3 minutos. ¡Diviértanse construyendo! 🧩</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 4 (3 minutos): Proyectar Diapositiva 7 "Mostrando nuestros Triángulos". Maestros: inviten a algunas parejas a compartir sus construcciones con el grupo.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">Tiempo. 🎉 ¡Qué triángulos tan increíbles han construido! Ahora, vamos a compartir nuestras creaciones. ¿Quién quiere mostrar su triángulo y contarnos cómo lo construyó? ¡Vamos a aplaudir y celebrar el gran trabajo de todos! 👏</div>
+            </div>
+            <div class="section">
+                <div class="step-title">Paso 5 (0.5 minutos): Mantener la Diapositiva 7. Maestros: elogien el trabajo de los genios y conecten con futuras actividades.</div>
+                <div class="section-title">Diálogo del Maestro</div>
+                <div class="dialogue">🌟 Excelente trabajo, genios! Han hecho triángulos maravillosos y han trabajado muy bien en equipo. ¿Se dieron cuenta de cómo usando las mismas piezas todos crearon triángulos únicos? ¡La imaginación no tiene límites! Prepárense, porque pronto exploraremos más formas y construcciones divertidas. ¡Sigamos adelante! 🚀</div>
+            </div>
+        </div>
+    </div>
+<!-- Actividad 5 (5 pasos) -->
+<div id="activity-5" class="activity">
+    <div class="banner" onclick="toggleContent('construyendo_circulo')">
+        <div class="title">
+            <span>🔵 Actividad 5: Construyendo un Círculo (5 pasos)</span>
+            <span>⏰ Tiempo: 8 minutos</span>
+        </div>
+        <div class="subtitle">Explorando y construyendo un círculo con bloques</div>
+    </div>
+    <div id="construyendo_circulo" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (0.5 minutos): Proyectar Diapositiva 8 "Construyendo un Círculo"</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">🔵 ¡Genios, ahora viene un desafío muy divertido! Hemos hecho un triángulo, y ahora es el turno de construir un círculo. Los círculos están por todas partes, como el sol o una rueda. ¡Vamos a ver cómo podemos construir uno con nuestros bloques!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 8. Maestros: expliquen y muestren cómo se forma un círculo con los bloques.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">🔍 Miren bien este círculo. Es redondo, no tiene esquinas y es muy suave. Vamos a pensar juntos cómo podemos usar nuestros bloques para formar un círculo. Nuevamente los ayudaremos a escoger los bloques adecuados y a colocarlos de manera que formen un bonito círculo. ¡Será una forma muy divertida de trabajar en equipo!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (5 minutos): Mantener la Diapositiva 8 visible. Configurar el temporizador visual para 5 minutos. Maestros: circulen por el aula, ofreciendo orientación y apoyo donde sea necesario.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">👐 ¡Es hora de construir! Junto con su compañero, tomen sus bloques y comiencen a formar su círculo. Recuerden trabajar juntos, probando diferentes maneras hasta que logren un círculo redondito. Si necesitan ayuda, levanten la mano y los maestros estarán ahí para guiarlos. Tenemos 5 minutos. ¡Vamos, genios! 🧩</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 4 (2 minutos): Mantener la Diapositiva 8. Maestros: guíen a los genios para que completen sus círculos y realicen la señalización.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">✅ ¿Han terminado su círculo? ¡Excelente! Ahora, para señalar que han terminado, vamos a hacer algo muy divertido: den tres vueltas alrededor de su círculo. ¡Uno, dos, tres, y lo lograron! 🚶‍♂️🚶‍♀️</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 5 (0.5 minutos): Proyectar Diapositiva 9 "¡Círculos Completados!". Maestros: inviten a los genios a compartir cómo se sintieron al construir el círculo y dar las vueltas.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">🎉 ¡Qué círculos tan geniales han construido! Y las vueltas que dieron fueron perfectas. ¡Miren lo que lograron juntos! Ahora, ¿quién quiere compartir cómo se sintió al construir su círculo y dar las vueltas? ¡Vamos a aplaudir y celebrar el gran trabajo de todos! 👏</div>
+        </div>
+    </div>
+</div>
+<!-- Actividad 6 (3 pasos) -->
+<div id="activity-6" class="activity">
+    <div class="banner" onclick="toggleContent('honor_despedida')">
+        <div class="title">
+            <span>🎉 Actividad 6: Honor The Dojo y Despedida (3 pasos)</span>
+            <span>⏰ Tiempo: 2.5 minutos</span>
+        </div>
+        <div class="subtitle">Recogida de ladrillos y despedida de la clase</div>
+    </div>
+    <div id="honor_despedida" class="content">
+        <div class="section">
+            <div class="step-title">Paso 1 (1 minuto): Proyectar Diapositiva 10 "Honor The Dojo: Recogida de Ladrillos".</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Genios, ¡qué gran trabajo hicieron hoy con sus triángulos y círculos! Ahora es momento de recoger todos los ladrillos que usamos y llevarlos al frente para guardarlos. ¡Así mantenemos todo en orden para la próxima misión!</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 2 (1 minuto): Mantener la Diapositiva 10. Maestros: asegúrense de que todos los ladrillos estén guardados y prepárense para la despedida.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">¡Genios, qué día tan divertido hemos tenido! ¿Les gustó construir y jugar con las formas? Si les gustó la clase de hoy, ¡levanten los brazos y agiten sus manos como si estuvieran saludando a todos sus amigos! 🌍🙌</div>
+        </div>
+        <div class="section">
+            <div class="step-title">Paso 3 (0.5 minutos): Proyectar Diapositiva 11 "¡Hasta la próxima, genios!". Maestros: despídanse de los niños con una sonrisa y energía positiva.</div>
+            <div class="section-title">Diálogo del Maestro</div>
+            <div class="dialogue">Y ahora es momento de decir adiós, genios. ¡Gracias por venir y por construir cosas tan increíbles hoy! Nos vemos en la próxima misión, donde habrá más diversión y muchas más aventuras. ¡Hasta pronto, genios! 👋</div>
+        </div>
+    </div>
+</div>
+
+    </div>
